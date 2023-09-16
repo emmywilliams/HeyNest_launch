@@ -13446,3 +13446,31 @@ body.open-sidebar .ofcanvas-triger .bar:nth-child(4) {
     max-width: 50vw;
   }
 }
+
+.count-down {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.count-down .timer .num {
+  font-size: 45px;
+  font-weight: 500;
+}
+
+.count-down .timer .text {
+  /* font-size: 15px; */
+  color: #FFCB57;
+}
+
+.count-down .clone {
+  font-size: 30px;
+  justify-content: center;
+}
+
+.timer {
+  margin-right: 5px;
+  margin-left: 5px;
+}

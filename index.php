@@ -49,8 +49,38 @@
                                 <div class="fxt-sub-title">Coming Soon...</div>
                             </div>
                             <div class="translate-bottom-100 transition-100 transition-delay-1000">
+                                
+                                
                                 <div class="fxt-countdown">
-                                    <div class="countdown"></div>
+                                    <div class="count-down">
+                                    <div class="timer day">
+                                    <div class="count">
+                                        <div class="num">00</div>
+                                        <div class="text">Days</div>
+                                    </div>
+                                    </div>
+                                    <div class="clone">:</div>
+                                    <div class="timer hour">
+                                    <div class="count">
+                                        <div class="num">00</div>
+                                        <div class="text">Hours</div>
+                                    </div>
+                                    </div>
+                                    <div class="clone">:</div>
+                                    <div class="timer min">
+                                    <div class="count">
+                                        <div class="num">00</div>
+                                        <div class="text">Minutes</div>
+                                    </div>
+                                    </div>
+                                    <div class="clone">:</div>
+                                    <div class="timer sec">
+                                    <div class="count">
+                                        <div class="num">00</div>
+                                        <div class="text">Seconds</div>
+                                    </div>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -298,6 +328,48 @@
         </div>
         <!-- Modal Area End Here -->
     </div>
+      <!-- script -->
+  <script>
+    const day = document.querySelector('.day .num');
+    const hour = document.querySelector('.hour .num');
+    const min = document.querySelector('.min .num');
+    const sec = document.querySelector('.sec .num');
+    var timer = setInterval(() => {
+      var currentDate = new Date().getTime();
+      var launchDate = new Date('Sep 30, 2023 18:00:00').getTime();
+      var duration = launchDate - currentDate;
+      var days = Math.floor(duration / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((duration % (1000 * 60)) / 1000);
+      day.innerHTML = days;
+      hour.innerHTML = hours;
+      min.innerHTML = minutes;
+      sec.innerHTML = seconds;
+      if (days < 10) {
+        day.innerHTML = '0' + days;
+      }
+      if (hours < 10) {
+        hour.innerHTML = '0' + hours;
+      }
+      if (minutes < 10) {
+        min.innerHTML = '0' + minutes;
+      }
+      if (seconds < 10) {
+        sec.innerHTML = '0' + seconds;
+      }
+      if (duration < 0) {
+        clearInterval(timer);
+      }
+    }, 1000);
+
+    // Wait for the document to fully load
+    document.addEventListener("DOMContentLoaded", function () {
+      // Add a class to the rocket element to start the animation
+      const rocket = document.querySelector(".rocket");
+      rocket.classList.add("move-up");
+    });
+  </script>
     <!-- jquery-->
     <script src="js/jquery-3.5.0.min.js"></script>
     <!-- Bootstrap js -->
